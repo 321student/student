@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="/css/jquery-ui.min.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/js/main.js"></script>
 
     <!-- Scripts -->
     
@@ -36,13 +38,13 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                <div class="jumbotron">
-                    <h4>Hello</h4>
-                    <p>
-                        <a class="btn btn-primary btn-sm" href="#" role="button">Learn more</a>
-                    </p>
-                </div>
+            <div class="col-xs-12 text-center">
+              
+                  
+                    <video width="720" height="320" controls loop>
+                        <source src="/Images/oo.webm" type="video/webm" >
+                    </video>
+              
             </div>
         </div>
 
@@ -70,15 +72,7 @@
                     <ul class="nav navbar-nav">
                         <li class=""><a href="{{ url('/entertainment') }}">Entertainment</a></li>
 
-                                <li class="dropdown">
-
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="/accomodation">Accomodation<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="{{ url('#') }}">Page 1-1</a></li>
-                                        <li><a href="{{ url('#') }}">Page 1-2</a></li>
-                                        <li><a href="{{ url('#') }}">Page 1-3</a></li>
-                                    </ul>
-                                </li>
+                                
                                 <li class=""><a href="{{ url('/accommodation') }}">Accommodation</a></li>
 
                                 <li class="dropdown">
@@ -130,6 +124,9 @@
                                             <a href="{{url('/user')}}">User</a>
                                         </li>
                                         @endif
+                                        <li>
+                                            <a href="{{url('/accommodation/create')}}">Add Accommodation</a>
+                                        </li>
                                     
                                 </ul>
                             </li>

@@ -2,10 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Country;
+use App\County;
+use App\City;
+use App\Accommodation;
 use Illuminate\Http\Request;
+
+
 
 class AccommodationController extends Controller
 {
+            /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,8 +29,9 @@ class AccommodationController extends Controller
      */
     public function index()
     {
-        
-        return view('accommodation');
+        $accommodations = Accommodation::all();
+        //dd($accommodations);
+        return view('accommodation.index', compact('accommodations'));
     }
 
     /**
@@ -24,7 +41,10 @@ class AccommodationController extends Controller
      */
     public function create()
     {
-        //
+        $countries = Country::all();
+     
+        
+        return view('accommodation.create', compact('countries'));
     }
 
     /**
@@ -35,7 +55,38 @@ class AccommodationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'description' => 'required|max:1000',
+            'room_type' => 'required',
+            'address_line_1' => 'required|max:255',
+            'address_line_2' => 'max:255',
+            'country' => 'required',
+            'county' => 'required',
+            'city' => 'required'
+        ]);
+        
+        $accommodation = new Accommodation;
+        
+        $accommodation->title = $request->title;
+        $accommodation->description = $request->description;
+        $accommodation->price = $request->price;
+        $accommodation->room_type = $request->room_type;
+        $accommodation->wifi = $request->wifi;
+        $accommodation->broadband = $request->broadband;
+        $accommodation->aircon = $request->aircon;
+        $accommodation->address_line_1 = $request->address_line_1;
+        $accommodation->address_line_2 = $request->address_line_2;
+        $accommodation->city = $request->city;
+        $accommodation->county = $request->county;
+        $accommodation->country = $request->country;
+        
+        
+        $accommodation->save();
+        $accommodations = Accommodation::all();
+        return view('accommodation.index', compact('accommodations'));
+        
+        
     }
 
     /**
@@ -46,7 +97,10 @@ class AccommodationController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        $accommodation = Accommodation::find($id);
+        
+        return view('accommodation.indyvidual', compact('accommodation'));
     }
 
     /**

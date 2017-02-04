@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <a href="/accomodation"><img src="/images/accomodation.png" alt="..." height="200" width="auto"></a>
+                        <a href="/accomodation"><img src="/images/accommodation.png" alt="..." height="200" width="auto"></a>
                         <div class="caption">
                             <h3>Select Accomodation</h3>
                             <p>...</p>

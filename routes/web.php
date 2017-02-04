@@ -1,5 +1,6 @@
 <?php
 
+use App\Country;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,4 +25,7 @@ Route::get('/admin', 'AdminController@index');
 
 Route::get('/register/verify/{token}', 'Auth\RegisterController@verify'); 
 
-Route::resource('accommodation', 'AccommodationController');
+Route::resource('/accommodation', 'AccommodationController');
+
+Route::post('/county', 'AjaxController@county');
+Route::post('/city', 'AjaxController@city');

@@ -2,6 +2,7 @@
 
 @section('content')
 
-    
+    {{$accommodation->title}}
+
 
 @endsection

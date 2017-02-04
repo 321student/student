@@ -18,8 +18,6 @@ class ExtendAccommodationTable extends Migration
             $table->string('description');
             $table->integer('price')->unsigned();
             $table->string('room_type');// Private, Shared, ...
-            $table->integer('near_college')->unsigned();// college id
-            
         });
     }
 
@@ -35,7 +33,6 @@ class ExtendAccommodationTable extends Migration
             $table->dropColumn('description');
             $table->dropColumn('price');
             $table->dropColumn('room_type');
-            $table->dropColumn('nead_college');
         });
     }
 }
